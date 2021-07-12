@@ -6,7 +6,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>{process.env.REACT_APP_TITLE} - by Aulia Rosyida</h1>
+        <h1>by Aulia Rosyida</h1>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" id="search" placeholder="Enter something..." />
+            <button type="button" class="btn btn-default" id="btn-submit">
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <img
+          src="https://media.giphy.com/media/Vh8pbGX3SGRwFDh3V0/source.gif"
+          alt="gif"
+        />
         <h3>{process.env.REACT_APP_DESCRIPTION}</h3>
 
         {process.env.NODE_ENV === 'development'
