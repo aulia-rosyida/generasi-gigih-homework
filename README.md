@@ -5,8 +5,8 @@ A repository for my homework and hands-on class in Generasi Gigih Intermediate C
 - https://github.com/aulia-rosyida/front-end-GG
 - You can find hw1, hw2 here
 # Branching
-exercise-{date} -> for practice during class
-hw{number} -> homework that has been submitted
+- exercise-{date} -> for practice during class
+- hw{number} -> homework that has been submitted
 
 # others
 main branch -> merge between:
