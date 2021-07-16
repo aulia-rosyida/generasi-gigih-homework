@@ -1,23 +1,34 @@
-import logo from './logo.svg'
 import './App.css'
-import ButtonSubmit from './components/Button'
 import Image from './components/Image'
-import gifData from './data/gifData'
+import gifsData from './data/gifsData'
 
 function App() {
+
+  const filteredGif = gifsData.map(
+    aGif => {
+      if(aGif.rating==="g"){
+        return aGif;
+      }
+      else return null;
+    }
+  )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>by Aulia Rosyida</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <div class="form-group">
-          <div class="col-sm-10">
-            <input type="text" id="search" placeholder="Enter something..." />
-            <ButtonSubmit />
-          </div>
-        </div>
-        <Image url={gifData.url} />
-      </header>
+        {
+          filteredGif.map( aFilterGif => {
+            return aFilterGif && 
+            <div key={aFilterGif?.id}>{
+              aFilterGif &&
+              <div>
+                 <p>The rating is : {aFilterGif.rating} </p>
+                 <p>The title is : {aFilterGif.title}</p>
+                 <Image url={aFilterGif.url}/>
+              </div>
+              }
+            </div>
+          })
+        }
     </div>
   )
 }
