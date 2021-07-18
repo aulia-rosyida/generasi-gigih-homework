@@ -13,3 +13,4 @@ main branch -> merge between:
 - hw3 (module1-session3)
 - hw4 (module2-session1)
 - hw5 (continues module2-session1)
+- hw6 (continues hw5)
