@@ -10,7 +10,6 @@ function Card(props) {
           <h3 id="title-song">
             <b>{props.albumName}</b>
           </h3>
-          {/* <img src={props.ImgUrl} alt="json" height="250" width="250" /> */}
           <Image url={props.imageUrl} />
           <p id="artist-song">
             <b>{props.artistName}</b>
