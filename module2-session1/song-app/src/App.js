@@ -6,8 +6,8 @@ import Search from './pages/Search'
 function App() {
   return (
     <div className="App">
-      <Search/>
-       {
+      <Search />
+      {/* {
           tracks.map( track => {
             return track && 
             <div key={track?.id}>{
@@ -22,7 +22,7 @@ function App() {
               }
             </div>
           })
-        }
+        } */}
     </div>
   )
 }
