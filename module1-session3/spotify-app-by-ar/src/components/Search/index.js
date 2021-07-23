@@ -70,7 +70,7 @@ const Search = (props) => {
         id="btn-play"
         onClick={() => printId()}
       >
-        PRINT HERE
+        PRINT ID HERE
       </button>
       {songs.map((track) => {
         return (
