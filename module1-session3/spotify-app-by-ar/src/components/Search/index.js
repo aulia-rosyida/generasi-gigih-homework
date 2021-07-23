@@ -14,7 +14,7 @@ const Search = (props) => {
     try {
       console.log('masuk search - token disini')
       console.log(props.searchToken)
-      let url = `https://api.spotify.com/v1/search?q=${inputTitle}&type=track,artist`
+      let url = `https://api.spotify.com/v1/search?q=${inputTitle}&type=track`
       axios
         .get(url, {
           headers: {
@@ -31,6 +31,28 @@ const Search = (props) => {
     }
   }
 
+  const [selectedSongsId, setSelectedSongs] = useState([])
+
+  function clickedCard(id) {
+    if (!checkedStatusSong(id)) setSelectedSongs([...selectedSongsId, id])
+    else {
+      let indexSong = selectedSongsId.indexOf(id)
+      if (indexSong != -1) {
+        let tempSelected = [...selectedSongsId]
+        tempSelected.splice(indexSong, 1)
+        setSelectedSongs(tempSelected)
+      }
+    }
+  }
+
+  function printId() {
+    console.log(selectedSongsId)
+  }
+
+  function checkedStatusSong(id) {
+    return selectedSongsId.includes(id)
+  }
+
   return (
     <div className="search-form">
       <label>
@@ -42,6 +64,14 @@ const Search = (props) => {
         />
       </label>
       <input type="submit" value="Submit" onClick={getSongs} />
+      <button
+        type="button"
+        className="btn btn-default"
+        id="btn-play"
+        onClick={() => printId()}
+      >
+        PRINT HERE
+      </button>
       {songs.map((track) => {
         return (
           track && (
@@ -50,10 +80,11 @@ const Search = (props) => {
                 <div>
                   <Card
                     cardId={track.id}
-                    isSelected={false}
-                    albumName={track.album.name}
+                    isSelected={checkedStatusSong(track.id)}
+                    albumName={track.name}
                     imageUrl={track.album.images[0].url}
                     artistName={track.album.artists[0].name}
+                    functionClicked={() => clickedCard(track.id)}
                   />
                 </div>
               )}

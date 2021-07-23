@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react'
 function Card(props) {
   const [statusSelected, setStatusSelected] = useState(props.isSelected)
 
-  function clickedCard() {
-    setStatusSelected(!statusSelected)
-  }
+  // function clickedCard() {
+  //   setStatusSelected(!statusSelected)
+  // }
 
   return (
     <div className="row center">
@@ -25,13 +25,9 @@ function Card(props) {
             type="button"
             className="btn btn-default"
             id="btn-play"
-            onClick={clickedCard}
+            onClick={() => props.functionClicked()}
           >
-            {(() => {
-              if (statusSelected === false) {
-                return <p>Select</p>
-              } else return <p>Unselect</p>
-            })()}
+            {props.isSelected ? 'selected' : 'select'}
           </button>
         </div>
       </div>
