@@ -10,12 +10,6 @@ const Search = () => {
     getGif()
   }, [])
 
-  const handleSubmit = (e) => {
-    setInputGif(e.target.value)
-    console.log('masuk handle submit')
-    alert('A name was submitted: ' + e.target.value)
-  }
-
   const getGif = async () => {
     const gifs = await fetch(
       `https://api.giphy.com/v1/gifs/search?api_key=5mioeMFTkhOA8A2JSAbf6RmYwPHN9eME&q=${inputGif}&limit=12`,
@@ -26,7 +20,6 @@ const Search = () => {
 
   return (
     <div className="search-form">
-      {/* <form onSubmit={handleSubmit}> */}
       <label>
         Name:
         <input
@@ -36,7 +29,6 @@ const Search = () => {
         />
       </label>
       <input type="submit" value="Submit" onClick={getGif} />
-      {/* </form> */}
       {gifs.data?.map((gif) => {
         return (
           gif && (
