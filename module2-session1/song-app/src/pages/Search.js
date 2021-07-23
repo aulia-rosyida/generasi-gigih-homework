@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './Search.css'
 import Image from '../components/image/index.js'
+import SearchBar from '../components/searchBar'
 
 const Search = () => {
   const [gifs, setGifs] = useState([])
   const [inputGif, setInputGif] = useState('input here')
 
-  useEffect(() => {
-    getGif()
-  }, [])
-
-  const getGif = async () => {
+  const getGif = async (e) => {
+    e.preventDefault()
     const gifs = await fetch(
       `https://api.giphy.com/v1/gifs/search?api_key=5mioeMFTkhOA8A2JSAbf6RmYwPHN9eME&q=${inputGif}&limit=12`,
     ).then((response) => response.json())
@@ -18,17 +16,18 @@ const Search = () => {
     console.log(gifs)
   }
 
+  const setSearchGif = (e) => {
+    setInputGif(e.target.value)
+  }
+
   return (
     <div className="search-form">
-      <label>
-        Name:
-        <input
-          type="text"
-          value={inputGif}
-          onChange={(e) => setInputGif(e.target.value)}
-        />
-      </label>
-      <input type="submit" value="Submit" onClick={getGif} />
+      <SearchBar
+        inputSearchGif={inputGif}
+        getSearchGif={getGif}
+        setInputSearchGif={setSearchGif}
+      />
+
       {gifs.data?.map((gif) => {
         return (
           gif && (
