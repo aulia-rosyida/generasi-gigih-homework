@@ -49,6 +49,8 @@ const Search = (props) => {
               {track && (
                 <div>
                   <Card
+                    cardId={track.id}
+                    isSelected={false}
                     albumName={track.album.name}
                     imageUrl={track.album.images[0].url}
                     artistName={track.album.artists[0].name}
