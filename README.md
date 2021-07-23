@@ -14,3 +14,5 @@ main branch -> merge between:
 - hw4 (module2-session1)
 - hw5 (continues module2-session1)
 - hw6 (continues hw5)
+- hw7 (continues hw3)
+- hw8 (continues hw7)
