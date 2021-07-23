@@ -7,7 +7,7 @@ function Card(props) {
     <div className="row center">
       <div className="column">
         <div className="card">
-          <h3 id="title-song">
+          <h3 className="title-song">
             <b>{props.albumName}</b>
           </h3>
           <Image url={props.imageUrl} />

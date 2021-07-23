@@ -17,21 +17,24 @@ function App() {
 
   return (
     <div className="App">
-      {(() => {
-        if (spotifyToken != null) {
-          return (
-            <div>
-              <Search searchToken={spotifyToken} />
-            </div>
-          )
-        } else {
-          ;<header className="App-header">
-            <h1>{process.env.REACT_APP_TITLE} - by Aulia Rosyida</h1>
-            <h3>{process.env.REACT_APP_DESCRIPTION}</h3>
-            <SpotifyLoginButton />
-          </header>
-        }
-      })()}
+      <header className="App-header">
+        <h1>{process.env.REACT_APP_TITLE} - by Aulia Rosyida</h1>
+        {(() => {
+          if (spotifyToken != null) {
+            return (
+              <div>
+                <Search searchToken={spotifyToken} />
+              </div>
+            )
+          } else
+            return (
+              <div>
+                <h3>{process.env.REACT_APP_DESCRIPTION}</h3>
+                <SpotifyLoginButton />
+              </div>
+            )
+        })()}
+      </header>
     </div>
   )
 }
