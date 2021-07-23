@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Search.css'
-import Image from '../components/image/index.js'
+import Card from '../components/card'
 import SearchBar from '../components/searchBar'
 
 const Search = () => {
@@ -33,11 +33,16 @@ const Search = () => {
           gif && (
             <div key={gif?.id}>
               {gif && (
-                <div>
-                  <p>The rating is : {gif.rating} </p>
-                  <p>The title is : {gif.title}</p>
-                  <Image url={gif.images.original.url} />
-                </div>
+                <Card
+                  gifName={gif.title}
+                  gifUrl={gif.images.original.url}
+                  gifRating={`Rating: ${gif.rating}`}
+                />
+                // <div>
+                //   <p>The rating is : {gif.rating} </p>
+                //   <p>The title is : {gif.title}</p>
+                //   <Image url={gif.images.original.url} />
+                // </div>
               )}
             </div>
           )
