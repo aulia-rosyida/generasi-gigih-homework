@@ -38,11 +38,6 @@ const Search = () => {
                   gifUrl={gif.images.original.url}
                   gifRating={`Rating: ${gif.rating}`}
                 />
-                // <div>
-                //   <p>The rating is : {gif.rating} </p>
-                //   <p>The title is : {gif.title}</p>
-                //   <Image url={gif.images.original.url} />
-                // </div>
               )}
             </div>
           )
