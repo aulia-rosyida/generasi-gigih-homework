@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react'
 import './Search.css'
 import Card from '../components/card'
 import SearchBar from '../components/searchBar'
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from '../app/counterSlice'
 
 const Search = () => {
   const [gifs, setGifs] = useState([])
   const [inputGif, setInputGif] = useState('input here')
+
+  //contoh penggunaan useSelector dan dispatch pada redux
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
   const getGif = async (e) => {
     e.preventDefault()
@@ -48,6 +54,22 @@ const Search = () => {
           )
         )
       })}
+      {/* contoh penggunaan dispatch redux pada increment dan decrement */}
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
     </div>
   )
 }
