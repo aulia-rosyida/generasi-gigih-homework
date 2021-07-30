@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/card'
-import SearchBar from '../../components/searchBar'
 
 const Trending = () => {
   const [gifs, setGifs] = useState([])
-  const [inputGif, setInputGif] = useState('input here')
+  const [inputGif] = useState('input here')
 
   const getGif = async (e) => {
     e.preventDefault()
@@ -13,10 +12,6 @@ const Trending = () => {
     ).then((response) => response.json())
     setGifs(gifs)
     console.log(gifs)
-  }
-
-  const setSearchGif = (e) => {
-    setInputGif(e.target.value)
   }
 
   return (

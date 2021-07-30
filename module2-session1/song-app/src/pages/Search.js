@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Search.css'
 import Card from '../components/card'
 import SearchBar from '../components/searchBar'
