@@ -1,17 +1,17 @@
 import React from 'react'
 import './index.css'
+import TextField from '@material-ui/core/TextField';  
 
 function SearchBar(props) {
   return (
     <form onSubmit={props.getSearchGif}>
-      <label>
-        Name:
-        <input
+        <TextField
+          label="Name" 
+          variant="outlined"
           type="text"
           value={props.inputSearchGif}
           onChange={props.setInputSearchGif}
         />
-      </label>
       <input type="submit" value="Submit" />
     </form>
   )
