@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-interface TitleProps {
+type TitleProps = {
   title: string;
   subtitle?: string;
 }
