@@ -1,28 +1,30 @@
 import './App.css'
-import Card from './components/card/index'
-import tracks from './api/tracks'
 import Search from './pages/Search'
+import Trending from './pages/trending'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <Search />
-      {/* {
-          tracks.map( track => {
-            return track && 
-            <div key={track?.id}>{
-              track &&
-              <div>
-                <Card
-                  albumName={track.album.name}
-                  imageUrl={track.album.images[1].url}
-                  artistName={track.album.artists[0].name}
-                />
-              </div>
-              }
-            </div>
-          })
-        } */}
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/trending">Trending</Link>
+            </li>
+          </ul>
+
+          <Route exact path="/">
+            <Search />
+          </Route>
+          <Route path="/trending">
+            <Trending />
+          </Route>
+        </div>
+      </Router>
     </div>
   )
 }

@@ -8,16 +8,12 @@ function Card(props) {
       <div className="column">
         <div className="card">
           <h3 id="title-song">
-            <b>{props.albumName}</b>
+            <b>{props.gifName}</b>
           </h3>
-          <Image url={props.imageUrl} />
+          <Image url={props.gifUrl} />
           <p id="artist-song">
-            <b>{props.artistName}</b>
+            <b>{props.gifRating}</b>
           </p>
-          <p id="album-song">{props.albumName}</p>
-          <button type="button" className="btn btn-default" id="btn-play">
-            Select
-          </button>
         </div>
       </div>
     </div>
